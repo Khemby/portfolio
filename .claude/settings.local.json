@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:posthog.com)",
+      "WebFetch(domain:clickup.com)",
+      "Bash(node:*)",
+      "Bash(npm --version:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:kaitlynhemby.com)"
+    ]
+  }
+}

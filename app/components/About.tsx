@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const highlights = [
   {
     badge: "AI",
@@ -37,39 +39,70 @@ export default function About() {
   return (
     <section id="about">
       <div className="section">
-        {/* Header */}
-        <div style={{ marginBottom: 56 }}>
-          <div className="section-label" style={{ marginBottom: 16 }}>
-            About Me
+        {/* Header + headshot */}
+        <div
+          style={{
+            marginBottom: 56,
+            display: "flex",
+            alignItems: "flex-start",
+            gap: 32,
+            flexWrap: "wrap",
+          }}
+        >
+          <div
+            style={{
+              flexShrink: 0,
+              borderRadius: 16,
+              overflow: "hidden",
+              border: "1px solid rgba(255,255,255,0.08)",
+              position: "relative",
+              width: 160,
+              height: 160,
+              backgroundColor: "#fff",
+            }}
+          >
+            <Image
+              src="/KaitlynHemby.png"
+              alt="Kaitlyn Hemby"
+              fill
+              sizes="160px"
+              style={{ objectFit: "cover" }}
+              priority
+            />
           </div>
-          <h2
-            style={{
-              fontSize: "clamp(28px, 4vw, 44px)",
-              fontWeight: 800,
-              letterSpacing: "-0.035em",
-              color: "#f0f0f2",
-              lineHeight: 1.1,
-              maxWidth: 640,
-            }}
-          >
-            Engineering platforms that{" "}
-            <span className="gradient-text">scale and ship.</span>
-          </h2>
-          <p
-            style={{
-              marginTop: 20,
-              fontSize: 16,
-              lineHeight: 1.8,
-              color: "#5a5a5a",
-              maxWidth: 600,
-            }}
-          >
-            Product and Technology Leader with 5+ years operating at the
-            intersection of APIs, integrations, and product strategy. Strong
-            background in defining technical requirements, writing specifications,
-            prioritizing roadmaps, and partnering cross-functionally to deliver
-            high-impact platform capabilities.
-          </p>
+          <div style={{ flex: "1 1 300px", minWidth: 0 }}>
+            <div className="section-label" style={{ marginBottom: 16 }}>
+              About Me
+            </div>
+            <h2
+              style={{
+                fontSize: "clamp(28px, 4vw, 44px)",
+                fontWeight: 800,
+                letterSpacing: "-0.035em",
+                color: "#f0f0f2",
+                lineHeight: 1.1,
+                maxWidth: 640,
+              }}
+            >
+              Engineering platforms that{" "}
+              <span className="gradient-text">scale and ship.</span>
+            </h2>
+            <p
+              style={{
+                marginTop: 20,
+                fontSize: 16,
+                lineHeight: 1.8,
+                color: "#5a5a5a",
+                maxWidth: 600,
+              }}
+            >
+              Product and Technology Leader with 5+ years operating at the
+              intersection of APIs, integrations, and product strategy. Strong
+              background in defining technical requirements, writing specifications,
+              prioritizing roadmaps, and partnering cross-functionally to deliver
+              high-impact platform capabilities.
+            </p>
+          </div>
         </div>
 
         {/* Highlight cards */}
@@ -84,7 +117,12 @@ export default function About() {
             <div
               key={h.title}
               className="card"
-              style={{ padding: "28px 24px" }}
+              style={{
+                padding: "28px 24px",
+                minWidth: 0,
+                display: "flex",
+                flexDirection: "column",
+              }}
             >
               {/* Badge */}
               <div
@@ -116,6 +154,7 @@ export default function About() {
                   color: "#f0f0f2",
                   marginBottom: 10,
                   letterSpacing: "-0.02em",
+                  minWidth: 0,
                 }}
               >
                 {h.title}
@@ -126,21 +165,35 @@ export default function About() {
                   lineHeight: 1.7,
                   color: "#5a5a5a",
                   marginBottom: 20,
+                  minWidth: 0,
+                  flex: 1,
                 }}
               >
                 {h.description}
               </p>
-              <span
-                className="tag"
+              <div
                 style={{
-                  backgroundColor: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  color: "#555",
-                  fontSize: 11,
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 6,
+                  minWidth: 0,
                 }}
               >
-                {h.tag}
-              </span>
+                {h.tag.split(" · ").map((skill) => (
+                  <span
+                    key={skill}
+                    className="tag"
+                    style={{
+                      backgroundColor: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.07)",
+                      color: "#555",
+                      fontSize: 11,
+                    }}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>

@@ -1,8 +1,7 @@
 export default function Hero() {
   const stats = [
     { value: "5+", label: "Years Experience" },
-    { value: "CTO", label: "Co-Founder" },
-    { value: "100+", label: "User Interviews" },
+    { value: "2x", label: "Technical Co-Founder" },
     { value: "AI", label: "Native Builder" },
   ];
 
@@ -11,11 +10,17 @@ export default function Hero() {
     "React",
     "Next.js",
     "Node.js",
+    "Express",
+    "Redux",
+    "Prisma",
     "AWS",
+    "Google Cloud",
     "MongoDB",
-    "Claude AI",
-    "Docker",
+    "Auth0",
     "Supabase",
+    "Claude Code",
+    "Cursor",
+    "Docker",
   ];
 
   return (
@@ -166,9 +171,9 @@ export default function Hero() {
             marginBottom: 52,
           }}
         >
-          Building scalable platforms at the intersection of APIs, developer
-          tooling, and AI-driven workflows. Former CTO and Co-Founder with 5+
-          years shipping production systems end-to-end.
+          Building scalable platforms at the intersection of APIs, integrations, and product strategy. 
+          Proven experience leading architecture strategy, patent-pending R&D, and cross-functional product execution from concept to launch. 
+          Combines UX expertise with hands-on technical execution across AI systems, backend architecture, and cloud deployment.
         </p>
 
         {/* Stats */}

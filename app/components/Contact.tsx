@@ -154,7 +154,6 @@ export default function Contact() {
 
             <div style={{ display: "flex", gap: 24 }}>
               {[
-                ["(925) 518-0326", "tel:+19255180326"],
                 ["LinkedIn", "https://www.linkedin.com/in/kaitlyn-hemby"],
                 ["kaitlynhemby.com", "https://kaitlynhemby.com"],
               ].map(([label, href]) => (
