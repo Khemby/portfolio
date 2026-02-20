@@ -1,0 +1,76 @@
+Kaitlyn Hemby
+(925) 518-0326 | khembyone@yahoo.com | https://kaitlynhemby.com  |  https://www.linkedin.com/in/kaitlyn-hemby
+
+Product and Technology Leader with 5+ years of experience operating at the intersection of APIs, integrations, and product strategy. Led end-to-end execution of developer-facing platforms, translating customer requirements into scalable system architecture across authentication, webhooks, data ingestion, and AI-driven workflows. Strong background in defining technical product requirements, writing specifications, prioritizing roadmaps, and partnering cross-functionally to deliver high-impact platform capabilities.
+
+Technical Competencies: AWS | Google Cloud | MongoDB | Prisma | Supabase | React | Next.js | Express | Node.js | TypeScript | Tailwind CSS | Vercel | Sentry | Docker | Auth0 | Github | CI/CD | Stripe | Sentry | Amplitude
+
+AI Competencies: Claude/Claude Code | OpenAI | Gemini | Cursor | n8n | RAG | AI Agents/Workflows 
+
+Work Experience
+Co-Founder / CTO, LifeSpark Labs
+MAR 2025 — MAR 2026, San Diego, CA
+	Led product strategy and technical execution for an AI-powered platform serving early-career professionals, operating as both technical architect and product owner.
+	Defined product roadmap across authentication, AI integration, subscription infrastructure, and developer-facing API components.
+	Translated 100+ customer interviews and user testing sessions into actionable product requirements and feature prioritization.
+	Authored technical specifications and collaborated with cross-functional teams to deliver modular, scalable platform capabilities.
+	Designed and implemented REST APIs and webhook-based workflows for subscription management, authentication, and user lifecycle transitions.
+	Structured backend systems to support evolving AI-driven recommendation and scoring engines.
+	Designed modular data models to support versioned assessments and behavioral scoring across large user datasets.
+	Led sprint planning, backlog prioritization, and feature scoping discussions.
+	 Balanced customer-specific feature requests with long-term platform scalability and extensibility decisions.
+
+Co-Founder, VortexeAI
+JUN 2024 — NOV 2025, Remote, CA
+	Conducted 100+ user interviews to validate product-market fit and refine value proposition prior to launch.
+	Designed visual pipeline interfaces for multimodal AI agent deployment.
+	Defined API contracts and frontend-to-ML integration logic for conditional agent behavior.
+	Contributed to backend schema design supporting modular agent orchestration and extensibility.
+
+UI/UX Technical Designer, AIREAL
+FEB 2024 — AUG 2024, Remote, CA
+	Increased user retention by 10% through A/B testing and UX improvements.
+	Designed a reusable modular UI system reducing production time by 20%.
+	Built dynamic real-time UI systems supporting 100+ homes per community.
+	Implemented UI assets into Unreal Engine 5 (UMG, Blueprints, C++ hooks).
+	Authored technical documentation to improve development speed.
+
+UI/UX Designer, Overwhelming Studios
+APR 2023 — FEB 2024, Remote, CA
+	Improved player retention by 10% through iterative UX redesign.
+	Increased overall player satisfaction by 30%.
+	Designed interactive HUD systems and motion-based UI.
+	Created prototypes and implemented UI in UE5.
+
+Lead Graphic Designer, SAGE Collectibles
+JAN 2019 — FEB 2024, Carlsbad, CA
+	Designed 15+ product lines and 1,000+ trading cards annually.
+	Contributed to 20% increase in sales through product design optimization.
+	Built Python automation scripts reducing repetitive workflow tasks.
+	Optimized asset production pipelines and documentation systems.
+
+
+Education
+M.S. COMPUTER SCIENCE, University of Colorado Boulder
+Expected Graduation 2026, Boulder, CO
+B.A. MULTIMEDIA DESIGN & PHOTOGRAPHY, Minor in Marketing San Diego State University
+2018, San Diego, CA
+
+Relevant Skills
+ 
+	Technical Architecture Design
+	Product Strategy
+	AI Integration & Workflow Design
+	Agile & Sprint Planning
+	Full Stack Development (React / Next.js / Node.js / Express)
+	Generative AI & LLM Applications
+	MongoDB & Database Design
+	Cloud Infrastructure (AWS / Google Cloud)
+	CI/CD & DevOps Workflows
+	System Architecture & Scalability
+	Cost Optimization & Technical Forecasting
+	QA & Testing Strategy
+	Design Systems (Figma)
+	Cross-Functional Leadership
+	UX Research & User Testing
+	Interaction Design
