@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CornerBrackets from "./ui/CornerBrackets";
 
 const highlights = [
   {
@@ -115,7 +116,9 @@ export default function AboutExperience() {
         >
           {/* Left — About */}
           <div>
-            <div className="section-label">About</div>
+            <div className="section-label">
+              <span style={{ color: "#383838" }}>02 //</span> ABOUT
+            </div>
 
             {/* Headshot */}
             <div style={{ marginBottom: 32 }}>
@@ -148,7 +151,8 @@ export default function AboutExperience() {
             </p>
 
             {/* Highlight cards */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "#383838", border: "1px solid #383838" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "#383838", border: "1px solid #383838", position: "relative" }}>
+              <CornerBrackets />
               {highlights.map((h) => (
                 <div key={h.badge} style={{ background: "#0a0a0a", padding: "16px" }}>
                   <div
@@ -183,7 +187,9 @@ export default function AboutExperience() {
 
           {/* Right — Experience */}
           <div id="experience">
-            <div className="section-label">Experience</div>
+            <div className="section-label">
+              <span style={{ color: "#383838" }}>02 //</span> EXPERIENCE
+            </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {experiences.map((exp, i) => (
