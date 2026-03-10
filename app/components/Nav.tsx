@@ -7,10 +7,8 @@ export default function Nav() {
         left: 0,
         right: 0,
         zIndex: 50,
-        backgroundColor: "rgba(7,7,8,0.82)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        backgroundColor: "#0a0a0a",
+        borderBottom: "1px solid #383838",
       }}
     >
       <div
@@ -18,47 +16,47 @@ export default function Nav() {
           maxWidth: 1120,
           margin: "0 auto",
           padding: "0 24px",
-          height: 60,
+          height: 56,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
         }}
       >
-        {/* Logo mark */}
+        {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div
             style={{
-              width: 32,
-              height: 32,
-              background: "linear-gradient(135deg, #6284f7, #9b5cf6)",
-              borderRadius: 8,
+              width: 28,
+              height: 28,
+              background: "#fafafa",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 12,
+              fontSize: 11,
               fontWeight: 700,
-              color: "white",
+              color: "#0a0a0a",
               fontFamily: "var(--font-geist-mono)",
               flexShrink: 0,
-              letterSpacing: "-0.02em",
+              letterSpacing: "0.05em",
             }}
           >
             KH
           </div>
           <span
             style={{
-              fontSize: 14,
+              fontSize: 13,
               fontWeight: 600,
-              color: "#e8e8e8",
-              letterSpacing: "-0.01em",
+              color: "#fafafa",
+              letterSpacing: "0.04em",
+              fontFamily: "var(--font-geist-mono)",
             }}
           >
             Kaitlyn Hemby
           </span>
         </div>
 
-        {/* Links */}
-        <div style={{ display: "flex", alignItems: "center", gap: 2 }}>
+        {/* Nav links */}
+        <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
           {[
             ["About", "#about"],
             ["Projects", "#projects"],
@@ -70,10 +68,11 @@ export default function Nav() {
               href={href}
               className="hover-link"
               style={{
-                fontSize: 13,
-                fontWeight: 500,
-                padding: "6px 12px",
-                borderRadius: 8,
+                fontSize: 11,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                padding: "6px 14px",
+                fontFamily: "var(--font-geist-mono)",
               }}
             >
               {label}
@@ -82,14 +81,16 @@ export default function Nav() {
           <a
             href="mailto:khembyone@yahoo.com"
             style={{
-              marginLeft: 10,
-              fontSize: 13,
-              fontWeight: 600,
-              color: "#fff",
-              background: "linear-gradient(135deg, #6284f7, #9b5cf6)",
-              padding: "7px 18px",
-              borderRadius: 8,
+              marginLeft: 16,
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "#0a0a0a",
+              background: "#fafafa",
+              padding: "7px 16px",
               textDecoration: "none",
+              fontFamily: "var(--font-geist-mono)",
             }}
           >
             Hire Me
