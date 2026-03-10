@@ -2,7 +2,9 @@ export default function Contact() {
   return (
     <section id="contact" style={{ background: "#0a0a0a" }}>
       <div className="section" style={{ textAlign: "center" }}>
-        <div className="section-label" style={{ textAlign: "center" }}>Contact</div>
+        <div className="section-label" style={{ textAlign: "center" }}>
+          <span style={{ color: "#383838" }}>05 //</span> CONTACT
+        </div>
 
         <h2
           style={{
@@ -16,6 +18,19 @@ export default function Contact() {
         >
           Let&apos;s build something remarkable together.
         </h2>
+
+        <div
+          style={{
+            fontSize: 9,
+            letterSpacing: "0.2em",
+            color: "#383838",
+            textTransform: "uppercase",
+            marginBottom: 16,
+            marginTop: -8,
+          }}
+        >
+          INITIATING CONTACT SEQUENCE //
+        </div>
 
         <p style={{ fontSize: 13, color: "#737373", lineHeight: 1.7, marginBottom: 40, maxWidth: 480, margin: "0 auto 40px" }}>
           Open to Software Engineer and Technical Leader roles. Let&apos;s talk.

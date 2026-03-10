@@ -32,7 +32,9 @@ export default function Projects() {
           }}
         >
           <div>
-            <div className="section-label">All Projects</div>
+            <div className="section-label">
+              <span style={{ color: "#383838" }}>04 //</span> ALL PROJECTS
+            </div>
             <h2
               style={{
                 fontSize: "clamp(24px, 4vw, 40px)",

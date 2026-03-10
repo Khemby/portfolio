@@ -24,7 +24,9 @@ export default function Skills() {
   return (
     <section id="skills" style={{ background: "#0a0a0a", borderBottom: "1px solid #383838" }}>
       <div className="section">
-        <div className="section-label">Skills</div>
+        <div className="section-label">
+          <span style={{ color: "#383838" }}>03 //</span> SKILLS
+        </div>
 
         {/* Category grid */}
         <div
