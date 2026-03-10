@@ -53,6 +53,16 @@ export default function Nav() {
           >
             Kaitlyn Hemby
           </span>
+          <span
+            style={{
+              fontSize: 10,
+              color: "#383838",
+              letterSpacing: "0.12em",
+              fontFamily: "var(--font-geist-mono)",
+            }}
+          >
+            // PORTFOLIO
+          </span>
         </div>
 
         {/* Nav links */}
