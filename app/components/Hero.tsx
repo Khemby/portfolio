@@ -1,255 +1,251 @@
-export default function Hero() {
-  const stats = [
-    { value: "5+", label: "Years Experience" },
-    { value: "2x", label: "Technical Co-Founder" },
-    { value: "AI", label: "Native Builder" },
-  ];
+"use client";
 
-  const stack = [
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Express",
-    "Redux",
-    "Prisma",
-    "AWS",
-    "Google Cloud",
-    "MongoDB",
-    "Auth0",
-    "Supabase",
-    "Claude Code",
-    "Cursor",
-    "Docker",
-  ];
+import { useEffect, useRef } from "react";
+
+type Particle = {
+  x: number;
+  y: number;
+  speed: number;
+  opacity: number;
+  fadeDelay: number;
+  fadeStart: number;
+  fadingOut: boolean;
+};
+
+export default function Hero() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current!;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const setSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    setSize();
+
+    let particles: Particle[] = [];
+    let raf = 0;
+
+    const count = () => Math.floor((canvas.width * canvas.height) / 7000);
+
+    const make = (): Particle => {
+      const fadeDelay = Math.random() * 600 + 100;
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        speed: Math.random() / 5 + 0.1,
+        opacity: 0.7,
+        fadeDelay,
+        fadeStart: Date.now() + fadeDelay,
+        fadingOut: false,
+      };
+    };
+
+    const reset = (p: Particle) => {
+      p.x = Math.random() * canvas.width;
+      p.y = Math.random() * canvas.height;
+      p.speed = Math.random() / 5 + 0.1;
+      p.opacity = 0.7;
+      p.fadeDelay = Math.random() * 600 + 100;
+      p.fadeStart = Date.now() + p.fadeDelay;
+      p.fadingOut = false;
+    };
+
+    const init = () => {
+      particles = [];
+      for (let i = 0; i < count(); i++) particles.push(make());
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.y -= p.speed;
+        if (p.y < 0) reset(p);
+        if (!p.fadingOut && Date.now() > p.fadeStart) p.fadingOut = true;
+        if (p.fadingOut) {
+          p.opacity -= 0.008;
+          if (p.opacity <= 0) reset(p);
+        }
+        ctx.fillStyle = `rgba(250, 250, 250, ${p.opacity})`;
+        ctx.fillRect(p.x, p.y, 0.6, Math.random() * 2 + 1);
+      });
+      raf = requestAnimationFrame(draw);
+    };
+
+    const onResize = () => { setSize(); init(); };
+    window.addEventListener("resize", onResize);
+    init();
+    raf = requestAnimationFrame(draw);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
   return (
     <section
-      id="hero"
+      className="grid-bg"
       style={{
         position: "relative",
         minHeight: "100vh",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
         overflow: "hidden",
+        paddingTop: 56, // nav height
       }}
     >
-      {/* Grid pattern */}
-      <div
-        className="grid-bg"
-        style={{ position: "absolute", inset: 0, zIndex: 0 }}
-      />
+      {/* Accent lines */}
+      <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+        <style>{`
+          @keyframes drawX {
+            0% { transform: scaleX(0); opacity: 0; }
+            60% { opacity: .9; }
+            100% { transform: scaleX(1); opacity: .4; }
+          }
+          @keyframes drawY {
+            0% { transform: scaleY(0); opacity: 0; }
+            60% { opacity: .9; }
+            100% { transform: scaleY(1); opacity: .4; }
+          }
+          .hline { position:absolute; height:1px; left:0; right:0; background:#383838; transform:scaleX(0); animation: drawX 800ms cubic-bezier(.22,.61,.36,1) forwards; }
+          .hline:nth-child(1){ top:25%; animation-delay:150ms; }
+          .hline:nth-child(2){ top:75%; animation-delay:350ms; }
+          .vline { position:absolute; width:1px; top:0; bottom:0; background:#383838; transform:scaleY(0); animation: drawY 900ms cubic-bezier(.22,.61,.36,1) forwards; }
+          .vline:nth-child(3){ left:20%; animation-delay:500ms; }
+          .vline:nth-child(4){ left:80%; animation-delay:650ms; }
+        `}</style>
+        <div className="hline" />
+        <div className="hline" />
+        <div className="vline" />
+        <div className="vline" />
+      </div>
 
-      {/* Gradient orbs */}
-      <div
-        className="orb"
-        style={{
-          width: 700,
-          height: 700,
-          background: "#4f7cf6",
-          top: "-220px",
-          left: "-220px",
-          opacity: 0.11,
-        }}
-      />
-      <div
-        className="orb"
-        style={{
-          width: 520,
-          height: 520,
-          background: "#9b5cf6",
-          bottom: "-100px",
-          right: "-100px",
-          opacity: 0.1,
-        }}
-      />
-      <div
-        className="orb"
-        style={{
-          width: 280,
-          height: 280,
-          background: "#ec4899",
-          top: "38%",
-          right: "18%",
-          opacity: 0.055,
-        }}
-      />
-
-      {/* Bottom gradient fade */}
-      <div
+      {/* Particle canvas */}
+      <canvas
+        ref={canvasRef}
         style={{
           position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: 260,
-          background: "linear-gradient(to bottom, transparent, #070708)",
-          zIndex: 1,
+          inset: 0,
+          width: "100%",
+          height: "100%",
           pointerEvents: "none",
+          mixBlendMode: "screen",
+          opacity: 0.6,
         }}
       />
 
+      {/* Hero content */}
       <div
         style={{
-          maxWidth: 1120,
-          margin: "0 auto",
-          padding: "128px 24px 100px",
           position: "relative",
-          zIndex: 2,
-          width: "100%",
+          zIndex: 10,
+          textAlign: "center",
+          padding: "0 24px",
+          maxWidth: 800,
         }}
       >
-        {/* Available badge */}
-        <div style={{ marginBottom: 36 }}>
-          <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              padding: "6px 14px",
-              borderRadius: 99,
-              border: "1px solid rgba(52,211,153,0.35)",
-              backgroundColor: "rgba(52,211,153,0.08)",
-              fontSize: 11,
-              fontWeight: 600,
-              color: "#34d399",
-              fontFamily: "var(--font-geist-mono)",
-              letterSpacing: "0.1em",
-            }}
-          >
-            <span
-              className="pulse"
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: "50%",
-                backgroundColor: "#34d399",
-                display: "inline-block",
-                flexShrink: 0,
-              }}
-            />
-            OPEN TO OPPORTUNITIES
-          </span>
+        {/* Status badge */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            border: "1px solid #383838",
+            padding: "4px 12px",
+            marginBottom: 32,
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "#737373",
+          }}
+        >
+          <span className="pulse" />
+          Open to Opportunities
         </div>
 
         {/* Name */}
         <h1
           style={{
-            fontSize: "clamp(56px, 9vw, 96px)",
-            fontWeight: 800,
+            fontSize: "clamp(40px, 8vw, 88px)",
+            fontWeight: 700,
             lineHeight: 0.95,
-            letterSpacing: "-0.045em",
-            color: "#f0f0f2",
-            marginBottom: 28,
+            letterSpacing: "-0.03em",
+            color: "#fafafa",
+            margin: "0 0 16px",
+            fontFamily: "var(--font-geist-mono)",
           }}
         >
-          Kaitlyn
-          <br />
-          <span className="gradient-text">Hemby</span>
+          Kaitlyn Hemby
         </h1>
 
-        {/* Role line */}
+        {/* Tagline */}
         <p
           style={{
-            fontSize: "clamp(15px, 2.2vw, 20px)",
-            fontWeight: 500,
-            color: "#888",
-            marginBottom: 22,
-            letterSpacing: "-0.01em",
+            fontSize: 12,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#737373",
+            margin: "0 0 24px",
           }}
         >
-          Software Engineer &nbsp;&bull;&nbsp; Technical Leader &nbsp;&bull;&nbsp; AI Builder
+          Software Engineer · Technical Leader · AI Builder
         </p>
 
         {/* Bio */}
         <p
           style={{
-            maxWidth: 540,
-            fontSize: 16,
-            lineHeight: 1.8,
-            color: "#5a5a5a",
-            marginBottom: 52,
+            fontSize: 15,
+            color: "#a1a1a1",
+            lineHeight: 1.6,
+            margin: "0 auto 36px",
+            maxWidth: 560,
           }}
         >
-          Building scalable platforms at the intersection of APIs, integrations, and product strategy. 
-          Proven experience leading architecture strategy, patent-pending R&D, and cross-functional product execution from concept to launch. 
-          Combines UX expertise with hands-on technical execution across AI systems, backend architecture, and cloud deployment.
+          5+ years building at the intersection of APIs, product strategy, and AI.
         </p>
-
-        {/* Stats */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "40px 52px",
-            marginBottom: 52,
-          }}
-        >
-          {stats.map((s) => (
-            <div key={s.label}>
-              <div
-                style={{
-                  fontSize: 30,
-                  fontWeight: 800,
-                  color: "#f0f0f2",
-                  lineHeight: 1,
-                  fontFamily: "var(--font-geist-mono)",
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                {s.value}
-              </div>
-              <div
-                style={{
-                  fontSize: 12,
-                  color: "#444",
-                  fontWeight: 500,
-                  marginTop: 6,
-                  letterSpacing: "0.04em",
-                  textTransform: "uppercase",
-                }}
-              >
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* CTA buttons */}
         <div
-          style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 64 }}
+          style={{
+            display: "flex",
+            gap: 12,
+            justifyContent: "center",
+            flexWrap: "wrap",
+            marginBottom: 56,
+          }}
         >
           <a
             href="mailto:khembyone@yahoo.com"
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              padding: "12px 28px",
-              borderRadius: 10,
-              background: "linear-gradient(135deg, #6284f7, #9b5cf6)",
-              color: "#fff",
-              fontWeight: 600,
-              fontSize: 14,
+              background: "#fafafa",
+              color: "#0a0a0a",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              padding: "10px 24px",
               textDecoration: "none",
-              letterSpacing: "-0.01em",
             }}
           >
             Get in Touch
           </a>
           <a
-            href="https://www.linkedin.com/in/kaitlyn-hemby"
+            href="https://linkedin.com/in/kaitlynhemby"
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              padding: "12px 28px",
-              borderRadius: 10,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "#ccc",
-              fontWeight: 600,
-              fontSize: 14,
+              border: "1px solid #383838",
+              color: "#737373",
+              fontSize: 11,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              padding: "10px 24px",
               textDecoration: "none",
             }}
           >
@@ -260,15 +256,12 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              padding: "12px 28px",
-              borderRadius: 10,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "#ccc",
-              fontWeight: 600,
-              fontSize: 14,
+              border: "1px solid #383838",
+              color: "#737373",
+              fontSize: 11,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              padding: "10px 24px",
               textDecoration: "none",
             }}
           >
@@ -276,29 +269,54 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Tech stack */}
-        <div>
-          <div
-            className="section-label"
-            style={{ marginBottom: 14, display: "block" }}
-          >
-            Current Stack
-          </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-            {stack.map((t) => (
-              <span
-                key={t}
-                className="tag"
+        {/* Stats row */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 0,
+            borderTop: "1px solid #383838",
+            paddingTop: 32,
+          }}
+        >
+          {[
+            ["5+", "Years Experience"],
+            ["2×", "Technical Co-Founder"],
+            ["AI", "Native Builder"],
+          ].map(([num, label], i) => (
+            <div
+              key={label}
+              style={{
+                flex: 1,
+                maxWidth: 180,
+                textAlign: "center",
+                borderLeft: i > 0 ? "1px solid #383838" : "none",
+                padding: "0 24px",
+              }}
+            >
+              <div
                 style={{
-                  backgroundColor: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  color: "#666",
+                  fontSize: 24,
+                  fontWeight: 700,
+                  color: "#fafafa",
+                  letterSpacing: "-0.02em",
+                  marginBottom: 4,
                 }}
               >
-                {t}
-              </span>
-            ))}
-          </div>
+                {num}
+              </div>
+              <div
+                style={{
+                  fontSize: 10,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "#737373",
+                }}
+              >
+                {label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
