@@ -1,165 +1,122 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  --card: #ffffff;
+  --ring: #a1a1a1;
+  --input: #e5e5e5;
+  --muted: #f5f5f5;
+  --accent: #f5f5f5;
+  --border: #e5e5e5;
+  --radius: 0rem;
+  --popover: #ffffff;
+  --primary: #737373;
+  --font-mono: Geist Mono, monospace;
+  --font-sans: Geist Mono, monospace;
+  --secondary: #f5f5f5;
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --destructive: #e7000b;
+  --card-foreground: #0a0a0a;
+  --sidebar-primary: #171717;
+  --muted-foreground: #717171;
+  --accent-foreground: #171717;
+  --popover-foreground: #0a0a0a;
+  --primary-foreground: #fafafa;
+  --secondary-foreground: #171717;
 }
 
-:root {
-  --background: #070708;
-  --foreground: #e8e8e8;
-  --card-bg: #0d0d0f;
-  --border: rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(255, 255, 255, 0.13);
-  --muted: #444;
-  --muted-2: #777;
+* {
+  box-sizing: border-box;
+  border-radius: 0;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
-    system-ui, sans-serif;
+  background: #0a0a0a;
+  color: #fafafa;
+  font-family: var(--font-geist-mono), 'Courier New', monospace;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  margin: 0;
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: #070708;
-}
-::-webkit-scrollbar-thumb {
-  background: #222;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #333;
-}
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #6284f7 0%, #9b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Subtle grid background */
-.grid-bg {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.022) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* Blurred gradient orbs */
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-}
-
-/* Cards */
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-.card:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
-}
-
-/* Tag / pill */
-.tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 10px;
-  border-radius: 99px;
-  font-size: 11.5px;
-  font-weight: 500;
-  font-family: var(--font-geist-mono), monospace;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-}
-
-/* Monospace section label */
-.section-label {
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #6284f7;
-}
-
-/* Horizontal gradient divider */
-.divider {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.06) 20%,
-    rgba(255, 255, 255, 0.06) 80%,
-    transparent
-  );
-}
-
-/* Pulsing dot animation */
-@keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(0.75);
-  }
-}
-.pulse {
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-
-/* Hover link */
-.hover-link {
-  color: var(--muted-2);
+a {
   text-decoration: none;
-  transition: color 0.2s;
-}
-.hover-link:hover {
-  color: var(--foreground);
+  color: inherit;
 }
 
-/* Section wrapper */
+/* Grid background texture */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Section container */
 .section {
   max-width: 1120px;
   margin: 0 auto;
   padding: 96px 24px;
 }
 
-/* Hide scrollbar (used on carousel) */
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+/* Section label */
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #737373;
+  margin-bottom: 32px;
 }
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+
+/* Horizontal rule divider */
+.divider {
+  border: none;
+  border-top: 1px solid #383838;
+  margin: 0;
 }
+
+/* Tag / pill badge */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border: 1px solid #383838;
+  color: #737373;
+  font-family: var(--font-geist-mono), monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Pulsing availability dot — explicit 50% overrides the * reset */
+.pulse {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50% !important;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* No scrollbar for carousels */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-style: none; }
+
+/* Hover link */
+.hover-link {
+  color: #737373;
+  transition: color 0.2s;
+}
+.hover-link:hover { color: #fafafa; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #383838; }
+::-webkit-scrollbar-thumb:hover { background: #525252; }
