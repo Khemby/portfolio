@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import CornerBrackets from "./ui/CornerBrackets";
 
 type Particle = {
   x: number;
@@ -150,6 +151,7 @@ export default function Hero() {
           maxWidth: 800,
         }}
       >
+        <CornerBrackets size={16} />
         {/* Status badge */}
         <div
           style={{
@@ -162,11 +164,11 @@ export default function Hero() {
             fontSize: 10,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color: "#737373",
           }}
         >
           <span className="pulse" />
-          Open to Opportunities
+          <span style={{ color: "#383838" }}>SYS:01 //</span>
+          <span style={{ color: "#737373" }}>OPEN TO OPPORTUNITIES</span>
         </div>
 
         {/* Name */}
@@ -318,6 +320,38 @@ export default function Hero() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Coordinate labels */}
+      <div
+        style={{
+          position: "absolute",
+          top: 12,
+          left: 16,
+          fontSize: 9,
+          color: "#383838",
+          letterSpacing: "0.1em",
+          fontFamily: "var(--font-geist-mono)",
+          pointerEvents: "none",
+          zIndex: 20,
+        }}
+      >
+        X:000 // Y:000
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: 12,
+          right: 16,
+          fontSize: 9,
+          color: "#383838",
+          letterSpacing: "0.1em",
+          fontFamily: "var(--font-geist-mono)",
+          pointerEvents: "none",
+          zIndex: 20,
+        }}
+      >
+        V.2026
       </div>
     </section>
   );
