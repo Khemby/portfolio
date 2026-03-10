@@ -1,179 +1,113 @@
 export default function Contact() {
   return (
-    <footer>
-      {/* CTA section */}
-      <div
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          borderTop: "1px solid rgba(255,255,255,0.06)",
-        }}
-      >
-        {/* Background orbs */}
-        <div
-          className="orb"
-          style={{
-            width: 500,
-            height: 500,
-            background: "#6284f7",
-            top: "-200px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            opacity: 0.07,
-          }}
-        />
+    <section id="contact" style={{ background: "#0a0a0a" }}>
+      <div className="section" style={{ textAlign: "center" }}>
+        <div className="section-label" style={{ textAlign: "center" }}>Contact</div>
 
-        <div
+        <h2
           style={{
-            maxWidth: 1120,
-            margin: "0 auto",
-            padding: "96px 24px 80px",
-            position: "relative",
-            zIndex: 1,
-            textAlign: "center",
+            fontSize: "clamp(24px, 4vw, 40px)",
+            fontWeight: 700,
+            color: "#fafafa",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+            marginBottom: 16,
           }}
         >
-          <div className="section-label" style={{ marginBottom: 20 }}>
-            Get in Touch
-          </div>
+          Let&apos;s build something remarkable together.
+        </h2>
 
-          <h2
+        <p style={{ fontSize: 13, color: "#737373", lineHeight: 1.7, marginBottom: 40, maxWidth: 480, margin: "0 auto 40px" }}>
+          Open to Software Engineer and Technical Leader roles. Let&apos;s talk.
+        </p>
+
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginBottom: 80 }}>
+          <a
+            href="mailto:khembyone@yahoo.com"
             style={{
-              fontSize: "clamp(32px, 5vw, 56px)",
-              fontWeight: 800,
-              letterSpacing: "-0.04em",
-              color: "#f0f0f2",
-              lineHeight: 1.05,
-              marginBottom: 20,
+              background: "#fafafa",
+              color: "#0a0a0a",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              padding: "10px 24px",
+              textDecoration: "none",
             }}
           >
-            Let&apos;s build something
-            <br />
-            <span className="gradient-text">remarkable together.</span>
-          </h2>
-
-          <p
+            Email Me
+          </a>
+          <a
+            href="https://linkedin.com/in/kaitlynhemby"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
-              fontSize: 16,
-              color: "#555",
-              lineHeight: 1.75,
-              maxWidth: 480,
-              margin: "0 auto 48px",
+              border: "1px solid #383838",
+              color: "#737373",
+              fontSize: 11,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              padding: "10px 24px",
+              textDecoration: "none",
             }}
           >
-            Open to Software Engineer and Technical Leader roles. I bring both
-            the architecture thinking and the hands-on execution to ship
-            production-grade systems.
-          </p>
-
-          {/* CTA buttons */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              flexWrap: "wrap",
-              gap: 12,
-              marginBottom: 64,
-            }}
-          >
-            <a
-              href="mailto:khembyone@yahoo.com"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                padding: "14px 32px",
-                borderRadius: 10,
-                background: "linear-gradient(135deg, #6284f7, #9b5cf6)",
-                color: "#fff",
-                fontWeight: 700,
-                fontSize: 15,
-                textDecoration: "none",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              khembyone@yahoo.com
-            </a>
-            <a
-              href="https://www.linkedin.com/in/kaitlyn-hemby"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                padding: "14px 32px",
-                borderRadius: 10,
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                color: "#ccc",
-                fontWeight: 600,
-                fontSize: 15,
-                textDecoration: "none",
-              }}
-            >
-              LinkedIn ↗
-            </a>
-          </div>
-
-          {/* Footer bar */}
-          <div
-            style={{
-              borderTop: "1px solid rgba(255,255,255,0.05)",
-              paddingTop: 32,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: 12,
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div
-                style={{
-                  width: 28,
-                  height: 28,
-                  background: "linear-gradient(135deg, #6284f7, #9b5cf6)",
-                  borderRadius: 7,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 10,
-                  fontWeight: 700,
-                  color: "white",
-                  fontFamily: "var(--font-geist-mono)",
-                }}
-              >
-                KH
-              </div>
-              <span
-                style={{ fontSize: 13, color: "#444", fontWeight: 500 }}
-              >
-                Kaitlyn Hemby
-              </span>
-            </div>
-
-            <div style={{ display: "flex", gap: 24 }}>
-              {[
-                ["LinkedIn", "https://www.linkedin.com/in/kaitlyn-hemby"],
-                ["kaitlynhemby.com", "https://kaitlynhemby.com"],
-              ].map(([label, href]) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    href.startsWith("http") ? "noopener noreferrer" : undefined
-                  }
-                  className="hover-link"
-                  style={{ fontSize: 12, fontFamily: "var(--font-geist-mono)" }}
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
-          </div>
+            LinkedIn ↗
+          </a>
         </div>
       </div>
-    </footer>
+
+      {/* Footer bar */}
+      <div
+        style={{
+          borderTop: "1px solid #383838",
+          padding: "20px 24px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          maxWidth: 1120,
+          margin: "0 auto",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div
+            style={{
+              width: 28,
+              height: 28,
+              background: "#fafafa",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 11,
+              fontWeight: 700,
+              color: "#0a0a0a",
+              letterSpacing: "0.05em",
+            }}
+          >
+            KH
+          </div>
+          <span style={{ fontSize: 12, color: "#737373" }}>Kaitlyn Hemby</span>
+        </div>
+        <div style={{ display: "flex", gap: 20 }}>
+          <a
+            href="https://linkedin.com/in/kaitlynhemby"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover-link"
+            style={{ fontSize: 11, letterSpacing: "0.08em" }}
+          >
+            LinkedIn ↗
+          </a>
+          <a
+            href="https://kaitlynhemby.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover-link"
+            style={{ fontSize: 11, letterSpacing: "0.08em" }}
+          >
+            kaitlynhemby.com ↗
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
