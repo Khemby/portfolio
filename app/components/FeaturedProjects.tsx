@@ -1,5 +1,6 @@
 import { EvervaultCard } from "./ui/EvervaultCard";
 import { projects } from "../data/projects";
+import CornerBrackets from "./ui/CornerBrackets";
 
 // Top 3 projects to feature — IDs must match app/data/projects.ts exactly
 const FEATURED_IDS = ["lifesparklabs", "vortexeai", "spxfit"];
@@ -11,7 +12,9 @@ export default function FeaturedProjects() {
   return (
     <section id="featured" style={{ background: "#0a0a0a", borderBottom: "1px solid #383838" }}>
       <div className="section" style={{ paddingTop: 64, paddingBottom: 64 }}>
-        <div className="section-label">Featured Projects</div>
+        <div className="section-label">
+          <span style={{ color: "#383838" }}>01 //</span> FEATURED PROJECTS
+        </div>
 
         <div
           style={{
@@ -21,8 +24,10 @@ export default function FeaturedProjects() {
             gap: 1,
             background: "#383838",
             border: "1px solid #383838",
+            position: "relative",
           }}
         >
+          <CornerBrackets />
           {/* Main large card */}
           {main && (
             <a
