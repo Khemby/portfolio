@@ -12,7 +12,10 @@ export interface Project {
   liveUrl?: string;
   portfolioUrl: string;
   /** Preview image path for the project card (e.g. /spxfit/PCDisplay.gif). Falls back to gradient if omitted. */
-  previewImage?: string;
+  previewImage?: {
+    src: string;
+    alt: string;
+  };
 }
 
 export const projects: Project[] = [
@@ -36,7 +39,10 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://lifesparklabs.com/",
     portfolioUrl: "https://kaitlynhemby.com/lifesparklabs",
-    previewImage: "/previews/placeholder.svg",
+    previewImage: {
+      src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773194519/preview_qvx8ic.png",
+      alt: "LifeSpark Labs Preview",
+    },
   },
   {
     id: "spxfit",
@@ -56,7 +62,10 @@ export const projects: Project[] = [
       "Fully responsive across mobile and web browser platforms",
     ],
     portfolioUrl: "https://kaitlynhemby.com/gym-equipment-configurator",
-    previewImage: "/spxfit/PCDisplay.gif",
+    previewImage: {
+      src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773191733/AppOnPC_brwaz8.png",
+      alt: "SPXFit Gym Configurator Preview",
+    },
   },
   {
     id: "vortexeai",
@@ -76,7 +85,10 @@ export const projects: Project[] = [
       "Full authentication system with Auth0 and Google integration",
     ],
     portfolioUrl: "https://kaitlynhemby.com/vortexeai",
-    previewImage: "/vortexeai/FullProduct.png",
+    previewImage: {
+      src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773191533/preview.png",
+      alt: "VortexeAI Preview",
+    },
   },
   {
     id: "aireal",
@@ -96,7 +108,10 @@ export const projects: Project[] = [
       "Dual navigation modes: aerial community view and first-person walkthrough",
     ],
     portfolioUrl: "https://kaitlynhemby.com/aireal",
-    previewImage: "/previews/placeholder.svg",
+    previewImage: {
+      src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773192961/Screenshot_2024-07-07_121828_scksz4.png",
+      alt: "AIREAL Preview",
+    },
   },
   {
     id: "dread",
@@ -116,7 +131,10 @@ export const projects: Project[] = [
       "Narrative-driven interface supporting full game world immersion",
     ],
     portfolioUrl: "https://kaitlynhemby.com/dread-neon-relics",
-    previewImage: "/previews/placeholder.svg",
+    previewImage: {
+      src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773192961/Screenshot_2024-07-07_121828_scksz4.png",
+      alt: "Dread: Neon Relics Preview",
+    },
   },
   {
     id: "sage",
@@ -136,7 +154,10 @@ export const projects: Project[] = [
       "Foil stamping and spot color premium print production at volume",
     ],
     portfolioUrl: "https://kaitlynhemby.com/sagecollectiblesllc",
-    previewImage: "/previews/placeholder.svg",
+    previewImage: {
+      src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773192884/card_lineup_yc3ysn.png",
+      alt: "SAGE Collectibles Preview",
+    },
   },
   {
     id: "speedometer",
@@ -157,7 +178,10 @@ export const projects: Project[] = [
       "Secondary display system using reduced visual weight for non-critical data",
     ],
     portfolioUrl: "https://kaitlynhemby.com/fui",
-    previewImage: "/previews/placeholder.svg",
+    previewImage: {
+      src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773194624/Shot_fmui84.png",
+      alt: "Sports Car Speedometer Preview",
+    },
   },
 ];
 

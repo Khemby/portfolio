@@ -166,8 +166,8 @@ export default function Projects() {
                 {project.previewImage ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    src={project.previewImage}
-                    alt={project.name}
+                    src={project.previewImage.src}
+                    alt={project.previewImage.alt}
                     style={{
                       position: "absolute",
                       inset: 0,

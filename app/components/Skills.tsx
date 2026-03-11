@@ -1,12 +1,12 @@
 const skillCategories = [
   { label: "Frontend", color: "#6284f7", skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS"] },
-  { label: "Backend", color: "#9b5cf6", skills: ["Node.js", "Express", "REST APIs", "Webhooks", "Prisma"] },
+  { label: "Backend", color: "#9b5cf6", skills: ["Node.js", "Express", "REST APIs", "Webhooks", "Prisma", "Python"] },
   { label: "AI & ML", color: "#f97316", skills: ["Claude / Claude Code", "OpenAI", "Gemini", "RAG Pipelines", "AI Agents", "n8n Workflows"] },
   { label: "Cloud & Infra", color: "#10b981", skills: ["AWS", "Google Cloud", "Docker", "Vercel", "CI/CD", "GitHub Actions"] },
   { label: "Databases", color: "#ec4899", skills: ["MongoDB", "Supabase", "PostgreSQL", "Prisma ORM"] },
   { label: "Auth & Payments", color: "#fbbf24", skills: ["Auth0", "Stripe", "OAuth 2.0", "JWT"] },
   { label: "Monitoring & Tools", color: "#38bdf8", skills: ["Sentry", "Amplitude", "GitHub", "Postman"] },
-  { label: "Design & Prototyping", color: "#a78bfa", skills: ["Figma", "Unreal Engine 5", "UMG", "Design Systems"] },
+  { label: "Design & Prototyping", color: "#a78bfa", skills: ["Figma", "Adobe Creative Suite"] },
 ];
 
 const leadershipSkills = [

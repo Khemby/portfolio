@@ -2,7 +2,7 @@ import { ContactButton } from "./ui/contact-button";
 
 export default function Contact() {
   return (
-    <section id="contact" className="grid-bg" style={{ background: "#0a0a0a" }}>
+    <section id="contact" style={{ background: "transparent" }}>
       <div className="section" style={{ textAlign: "center" }}>
         <div className="section-label" style={{ textAlign: "center" }}>
           <span style={{ color: "#383838" }}>05 //</span> CONTACT

@@ -1,5 +1,6 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import HeroBackground from "./components/HeroBackground";
 import FeaturedProjects from "./components/FeaturedProjects";
 import AboutExperience from "./components/AboutExperience";
 import Skills from "./components/Skills";
@@ -10,12 +11,21 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <Hero />
-      <FeaturedProjects />
+
+      {/* Shared background zone: particles + grid + accent lines cover both Hero and carousel */}
+      <div className="grid-bg" style={{ position: "relative", backgroundColor: "#0a0a0a" }}>
+        <HeroBackground />
+        <Hero />
+        <FeaturedProjects />
+      </div>
+
       <AboutExperience />
       <Skills />
       <Projects />
-      <Contact />
+      <div className="grid-bg" style={{ position: "relative", backgroundColor: "#0a0a0a" }}>
+        <HeroBackground />
+        <Contact />
+      </div>
     </>
   );
 }

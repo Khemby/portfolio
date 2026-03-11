@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { projects } from "../data/projects";
 import { EvervaultCard } from "./ui/EvervaultCard";
 import CornerBrackets from "./ui/CornerBrackets";
@@ -13,7 +14,7 @@ export default function FeaturedProjects() {
   };
 
   return (
-    <section id="featured" className="grid-bg" style={{ borderBottom: "1px solid #383838" }}>
+    <section id="featured" style={{ borderBottom: "1px solid #383838" }}>
       <div className="section" style={{ paddingTop: 24, paddingBottom: 24 }}>
         {/* Header row */}
         <div
@@ -68,6 +69,8 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Carousel */}
+        <div style={{ position: "relative", padding: 4 }}>
+          <CornerBrackets offset={4} />
         <div
           ref={scrollRef}
           className="no-scrollbar"
@@ -77,16 +80,12 @@ export default function FeaturedProjects() {
             overflowX: "auto",
             scrollSnapType: "x mandatory",
             background: "transparent",
-            position: "relative",
           }}
         >
-          <CornerBrackets />
           {projects.map((project) => (
-            <a
+            <Link
               key={project.id}
-              href={project.portfolioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/projects/${project.id}`}
               style={{
                 minWidth: 260,
                 maxWidth: 260,
@@ -101,8 +100,17 @@ export default function FeaturedProjects() {
               }}
             >
               {/* Preview */}
-              <div style={{ height: 110, position: "relative" }}>
-                <EvervaultCard accentColor={project.color} abbr={project.abbr} className="h-full" />
+              <div style={{ height: 110, position: "relative", overflow: "hidden" }}>
+                {project.previewImage ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={project.previewImage.src}
+                    alt={project.previewImage.alt}
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                ) : (
+                  <EvervaultCard accentColor={project.color} abbr={project.abbr} className="h-full" />
+                )}
               </div>
 
               {/* Card body */}
@@ -143,8 +151,9 @@ export default function FeaturedProjects() {
                   View →
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
+        </div>
         </div>
       </div>
     </section>

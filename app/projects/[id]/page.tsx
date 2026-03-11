@@ -232,8 +232,8 @@ export default async function ProjectPage({ params }: PageProps) {
                   key={tech}
                   className="tag"
                   style={{
-                    backgroundColor: `${project.color}10`,
-                    border: `1px solid ${project.color}26`,
+                    background: "#1a1a1a",
+                    border: `1px solid ${project.color}44`,
                     color: project.color,
                     fontSize: 13,
                     padding: "6px 14px",

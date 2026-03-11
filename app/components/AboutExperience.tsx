@@ -6,33 +6,44 @@ const highlights = [
     badge: "AI",
     color: "#f97316",
     title: "AI-First Builder",
-    desc: "Claude, OpenAI, RAG pipelines, n8n agents",
-    tags: ["LLMs", "RAG", "Agents", "n8n"],
+    desc: "Managing AI-driven workflows and integrations with LLMs, RAG pipelines, and agents",
+    tags: ["LLMs", "RAG", "Agents", "Claude Code", "OpenAI", "Gemini"],
   },
   {
     badge: "FS",
     color: "#6284f7",
     title: "Full-Stack Engineer",
-    desc: "React, Next.js, Node.js, TypeScript, MongoDB, Supabase",
-    tags: ["React", "Node.js", "TypeScript", "AWS"],
+    desc: "Building scalable full-stack applications with production-ready infrastructure",
+    tags: ["Frontend", "Backend", "Database Design", "Cloud Hosting", "CI/CD", "Payment Processing", "Analytics"],
   },
   {
     badge: "TL",
     color: "#9b5cf6",
     title: "Technical Leader",
-    desc: "CTO & Co-Founder experience, architecture, sprint planning",
-    tags: ["Architecture", "Roadmaps", "Agile"],
+    desc: "Leading technical teams and driving technical execution",
+    tags: ["Architecture", "Roadmaps", "Agile", "Sprint Planning", "Technical Documentation"],
   },
   {
     badge: "PM",
     color: "#10b981",
     title: "Product-Minded",
-    desc: "100+ customer interviews, technical specifications",
-    tags: ["Strategy", "Specs", "User Research"],
+    desc: "Translating user needs into technical specifications and product strategy",
+    tags: ["Strategy", "Specs", "User Research", "Product Roadmaps"],
   },
 ];
 
 const experiences = [
+  {
+    company: "Self-Employed",
+    role: "Software Engineer Contractor",
+    period: "Mar 2026 — Present",
+    location: "Remote / San Diego, CA",
+    color: "#fafafa",
+    bullets: [
+      "Providing full-stack software engineering and technical consulting services to clients",
+    ],
+    tags: ["Consulting", "Full-Stack", "AI", "Next.js", "TypeScript", "Node.js", "Express", "REST APIs","Cloud Hosting", "CI/CD", "Payment Processing", "Analytics"],
+  },
   {
     company: "LifeSpark Labs",
     role: "Co-Founder / CTO",
@@ -41,13 +52,13 @@ const experiences = [
     color: "#14b8a6",
     bullets: [
       "Led product strategy and full-stack architecture for an AI-powered job intelligence platform",
-      "Directed patent-pending R&D for proprietary AI/ML features",
+      "Drove 357 MAU during early-stage rollout and increased average session duration by 18% after redesigning feature structures.",
       "Integrated AI-assisted workflows to automate candidate matching and career coaching",
-      "Managed cross-functional engineering team, sprint planning, and technical roadmap",
-      "Conducted 100+ user testing sessions to guide UX and feature prioritization",
-      "Established KPI frameworks and monitoring/observability stack with Sentry and Amplitude",
+      "Led cross-functional teams of developers, designers, and AI interns using Agile sprint planning, established KPI frameworks, and implemented observability systems",
+      "Achieved 25% DAU completion rate for core learning assets while reducing bounce rate by 3.5% through onboarding and landing page optimization.",
+      "Directed patent-pending R&D for AI-driven behavioral intelligence and simulation technology, designing scalable AI workflows integrating generative models and personalization logic.",
     ],
-    tags: ["MongoDB", "Node.js", "AWS", "CI/CD", "Vercel", "AI", "TypeScript", "Sentry"],
+    tags: ["MongoDB", "Next.js", "Node.js", "TypeScript", "AWS", "CI/CD", "Vercel", "AI", "Docker", "Sentry", "Amplitude"],
   },
   {
     company: "VortexeAI",
@@ -56,9 +67,9 @@ const experiences = [
     location: "Remote, CA",
     color: "#9b5cf6",
     bullets: [
-      "Validated product direction through 100+ user interviews",
+      "Conducted 100+ user interviews to validate product-market fit and refine value proposition prior to launch.",
       "Designed visual drag-and-drop pipeline editor for AI agent workflows",
-      "Architected backend schema and API design for ML model integration",
+      "Collaborated on backend schema for multi-agent orchestration and LLM integration.",
       "Built frontend-ML bridge for real-time inference and workflow execution",
     ],
     tags: ["React", "TypeScript", "API Design", "ML Integration"],
@@ -72,7 +83,7 @@ const experiences = [
     bullets: [
       "Improved user retention by 10% through modular UI system redesign",
       "Implemented real-time UI for a 100+ home community AR experience",
-      "Delivered full UE5 implementation with motion UI and A/B tested designs",
+      "Designed a reusable modular UI system reducing production time by 20%.",
     ],
     tags: ["Unreal Engine 5", "UMG", "C++", "Figma", "A/B Testing"],
   },
@@ -127,7 +138,7 @@ export default function AboutExperience() {
                 alt="Kaitlyn Hemby"
                 width={120}
                 height={120}
-                style={{ display: "block", border: "1px solid #383838" }}
+                style={{ display: "block", border: "1px solid #383838", background: "#fafafa" }}
               />
             </div>
 
