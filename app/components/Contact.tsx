@@ -38,7 +38,7 @@ export default function Contact() {
           Open to Software Engineer and Technical Leader roles. Let&apos;s talk.
         </p>
 
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginBottom: 80 }}>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 80 }}>
           <ContactButton variant="contact" />
           <a
             href="https://linkedin.com/in/kaitlyn-hemby"
@@ -60,17 +60,7 @@ export default function Contact() {
       </div>
 
       {/* Footer bar */}
-      <div
-        style={{
-          borderTop: "1px solid #383838",
-          padding: "20px 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          maxWidth: 1120,
-          margin: "0 auto",
-        }}
-      >
+      <div className="footer-bar">
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div
             style={{

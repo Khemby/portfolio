@@ -90,7 +90,7 @@ export default function Projects() {
         </div>
 
         {/* Category filter tabs */}
-        <div style={{ display: "flex", gap: 0, marginBottom: 32, borderBottom: "1px solid #383838" }}>
+        <div className="no-scrollbar" style={{ display: "flex", gap: 0, marginBottom: 32, borderBottom: "1px solid #383838", overflowX: "auto" }}>
           {CATEGORIES.map((cat) => (
             <button
               key={cat}

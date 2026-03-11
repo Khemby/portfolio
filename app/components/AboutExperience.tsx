@@ -117,14 +117,7 @@ export default function AboutExperience() {
   return (
     <section id="about" style={{ background: "#0a0a0a", borderBottom: "1px solid #383838" }}>
       <div className="section">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 64,
-            alignItems: "start",
-          }}
-        >
+        <div className="about-grid">
           {/* Left — About */}
           <div>
             <div className="section-label">
@@ -162,7 +155,7 @@ export default function AboutExperience() {
             </p>
 
             {/* Highlight cards */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1, background: "#383838", border: "1px solid #383838", position: "relative" }}>
+            <div className="highlight-grid">
               <CornerBrackets />
               {highlights.map((h) => (
                 <div key={h.badge} style={{ background: "#0a0a0a", padding: "16px" }}>
