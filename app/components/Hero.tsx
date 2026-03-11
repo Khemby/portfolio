@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import CornerBrackets from "./ui/CornerBrackets";
+import { ContactButton } from "./ui/contact-button";
 
 type Particle = {
   x: number;
@@ -92,13 +93,14 @@ export default function Hero() {
       className="grid-bg"
       style={{
         position: "relative",
-        minHeight: "100vh",
+        minHeight: "58vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
         paddingTop: 56, // nav height
+        paddingBottom: 32,
       }}
     >
       {/* Accent lines */}
@@ -168,7 +170,7 @@ export default function Hero() {
         >
           <span className="pulse" />
           <span style={{ color: "#383838" }}>SYS:01 //</span>
-          <span style={{ color: "#737373" }}>OPEN TO OPPORTUNITIES</span>
+          <span style={{ color: "#56e370" }}>OPEN TO OPPORTUNITIES</span>
         </div>
 
         {/* Name */}
@@ -219,26 +221,12 @@ export default function Hero() {
             gap: 12,
             justifyContent: "center",
             flexWrap: "wrap",
-            marginBottom: 56,
+            marginBottom: 32,
           }}
         >
+          <ContactButton variant="hero" />
           <a
-            href="mailto:khembyone@yahoo.com"
-            style={{
-              background: "#fafafa",
-              color: "#0a0a0a",
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              padding: "10px 24px",
-              textDecoration: "none",
-            }}
-          >
-            Get in Touch
-          </a>
-          <a
-            href="https://linkedin.com/in/kaitlynhemby"
+            href="https://linkedin.com/in/kaitlyn-hemby"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -254,7 +242,7 @@ export default function Hero() {
             LinkedIn ↗
           </a>
           <a
-            href="https://github.com/kaitlynhemby"
+            href="https://github.com/khemby"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -278,7 +266,7 @@ export default function Hero() {
             justifyContent: "center",
             gap: 0,
             borderTop: "1px solid #383838",
-            paddingTop: 32,
+            paddingTop: 20,
           }}
         >
           {[

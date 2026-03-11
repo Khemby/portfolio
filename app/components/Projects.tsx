@@ -122,10 +122,10 @@ export default function Projects() {
           className="no-scrollbar"
           style={{
             display: "flex",
-            gap: 1,
+            gap: 16,
             overflowX: "auto",
             scrollSnapType: "x mandatory",
-            background: "#383838",
+            background: "transparent",
           }}
         >
           {filtered.map((project) => (

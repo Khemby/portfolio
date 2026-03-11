@@ -1,119 +1,110 @@
-import { EvervaultCard } from "./ui/EvervaultCard";
+"use client";
+
+import { useRef } from "react";
 import { projects } from "../data/projects";
+import { EvervaultCard } from "./ui/EvervaultCard";
 import CornerBrackets from "./ui/CornerBrackets";
 
-// Top 3 projects to feature — IDs must match app/data/projects.ts exactly
-const FEATURED_IDS = ["lifesparklabs", "vortexeai", "spxfit"];
-
 export default function FeaturedProjects() {
-  const featured = FEATURED_IDS.map((id) => projects.find((p) => p.id === id)!).filter(Boolean);
-  const [main, ...rest] = featured;
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: number) => {
+    scrollRef.current?.scrollBy({ left: direction * 280, behavior: "smooth" });
+  };
 
   return (
-    <section id="featured" style={{ background: "#0a0a0a", borderBottom: "1px solid #383838" }}>
-      <div className="section" style={{ paddingTop: 64, paddingBottom: 64 }}>
-        <div className="section-label">
-          <span style={{ color: "#383838" }}>01 //</span> FEATURED PROJECTS
-        </div>
-
+    <section id="featured" className="grid-bg" style={{ borderBottom: "1px solid #383838" }}>
+      <div className="section" style={{ paddingTop: 24, paddingBottom: 24 }}>
+        {/* Header row */}
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "1.6fr 1fr",
-            gridTemplateRows: "auto",
-            gap: 1,
-            background: "#383838",
-            border: "1px solid #383838",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: 24,
+          }}
+        >
+          <div className="section-label" style={{ marginBottom: 0 }}>
+            <span style={{ color: "#383838" }}>01 //</span> PROJECTS
+          </div>
+          <div style={{ display: "flex", gap: 8 }}>
+            <button
+              onClick={() => scroll(-1)}
+              aria-label="Scroll left"
+              style={{
+                width: 32,
+                height: 32,
+                background: "transparent",
+                border: "1px solid #383838",
+                color: "#737373",
+                cursor: "pointer",
+                fontSize: 14,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              ←
+            </button>
+            <button
+              onClick={() => scroll(1)}
+              aria-label="Scroll right"
+              style={{
+                width: 32,
+                height: 32,
+                background: "transparent",
+                border: "1px solid #383838",
+                color: "#737373",
+                cursor: "pointer",
+                fontSize: 14,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        {/* Carousel */}
+        <div
+          ref={scrollRef}
+          className="no-scrollbar"
+          style={{
+            display: "flex",
+            gap: 16,
+            overflowX: "auto",
+            scrollSnapType: "x mandatory",
+            background: "transparent",
             position: "relative",
           }}
         >
           <CornerBrackets />
-          {/* Main large card */}
-          {main && (
-            <a
-              href={main.portfolioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "block",
-                background: "#0a0a0a",
-                textDecoration: "none",
-                color: "inherit",
-                gridRow: "1 / 3",
-              }}
-            >
-              {/* Preview area */}
-              <div style={{ height: 220, borderLeft: `3px solid ${main.color}`, position: "relative" }}>
-                <EvervaultCard accentColor={main.color} abbr={main.abbr} className="h-full" />
-              </div>
-              {/* Card body */}
-              <div style={{ padding: "20px 24px", borderTop: "1px solid #383838" }}>
-                <div
-                  style={{
-                    fontSize: 9,
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    color: main.color,
-                    marginBottom: 8,
-                  }}
-                >
-                  Featured · 01 · {main.category}
-                </div>
-                <div
-                  style={{
-                    fontSize: 18,
-                    fontWeight: 700,
-                    color: "#fafafa",
-                    letterSpacing: "-0.02em",
-                    marginBottom: 6,
-                  }}
-                >
-                  {main.name}
-                </div>
-                <div style={{ fontSize: 12, color: "#737373", marginBottom: 4 }}>{main.role}</div>
-                <div style={{ fontSize: 12, color: "#a1a1a1", lineHeight: 1.6, marginBottom: 14 }}>
-                  {main.tagline}
-                </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 16 }}>
-                  {main.technologies.slice(0, 5).map((tech) => (
-                    <span key={tech} className="tag">{tech}</span>
-                  ))}
-                  {main.technologies.length > 5 && (
-                    <span className="tag">+{main.technologies.length - 5}</span>
-                  )}
-                </div>
-                <span
-                  style={{
-                    fontSize: 10,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    color: main.color,
-                  }}
-                >
-                  View Project →
-                </span>
-              </div>
-            </a>
-          )}
-
-          {/* Small cards */}
-          {rest.map((project, i) => (
+          {projects.map((project) => (
             <a
               key={project.id}
               href={project.portfolioUrl}
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: "block",
-                background: "#0a0a0a",
+                minWidth: 260,
+                maxWidth: 260,
+                scrollSnapAlign: "start",
+                flexShrink: 0,
+                display: "flex",
+                flexDirection: "column",
                 textDecoration: "none",
                 color: "inherit",
+                background: "#0a0a0a",
+                borderLeft: `3px solid ${project.color}`,
               }}
             >
-              {/* Preview area */}
-              <div style={{ height: 110, borderLeft: `3px solid ${project.color}`, position: "relative" }}>
+              {/* Preview */}
+              <div style={{ height: 110, position: "relative" }}>
                 <EvervaultCard accentColor={project.color} abbr={project.abbr} className="h-full" />
               </div>
+
               {/* Card body */}
               <div style={{ padding: "14px 16px", borderTop: "1px solid #383838" }}>
                 <div
@@ -125,11 +116,11 @@ export default function FeaturedProjects() {
                     marginBottom: 6,
                   }}
                 >
-                  Featured · 0{i + 2}
+                  {project.category}
                 </div>
                 <div
                   style={{
-                    fontSize: 14,
+                    fontSize: 13,
                     fontWeight: 700,
                     color: "#fafafa",
                     letterSpacing: "-0.01em",
@@ -138,7 +129,9 @@ export default function FeaturedProjects() {
                 >
                   {project.name}
                 </div>
-                <div style={{ fontSize: 11, color: "#737373", marginBottom: 10 }}>{project.tagline}</div>
+                <div style={{ fontSize: 11, color: "#737373", lineHeight: 1.5, marginBottom: 12 }}>
+                  {project.tagline}
+                </div>
                 <span
                   style={{
                     fontSize: 10,
@@ -152,22 +145,6 @@ export default function FeaturedProjects() {
               </div>
             </a>
           ))}
-        </div>
-
-        {/* View all link */}
-        <div style={{ marginTop: 24, textAlign: "right" }}>
-          <a
-            href="#projects"
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "#737373",
-            }}
-            className="hover-link"
-          >
-            View All Projects →
-          </a>
         </div>
       </div>
     </section>

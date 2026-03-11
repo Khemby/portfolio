@@ -1,6 +1,8 @@
+import { ContactButton } from "./ui/contact-button";
+
 export default function Contact() {
   return (
-    <section id="contact" style={{ background: "#0a0a0a" }}>
+    <section id="contact" className="grid-bg" style={{ background: "#0a0a0a" }}>
       <div className="section" style={{ textAlign: "center" }}>
         <div className="section-label" style={{ textAlign: "center" }}>
           <span style={{ color: "#383838" }}>05 //</span> CONTACT
@@ -37,23 +39,9 @@ export default function Contact() {
         </p>
 
         <div style={{ display: "flex", gap: 12, justifyContent: "center", marginBottom: 80 }}>
+          <ContactButton variant="contact" />
           <a
-            href="mailto:khembyone@yahoo.com"
-            style={{
-              background: "#fafafa",
-              color: "#0a0a0a",
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              padding: "10px 24px",
-              textDecoration: "none",
-            }}
-          >
-            Email Me
-          </a>
-          <a
-            href="https://linkedin.com/in/kaitlynhemby"
+            href="https://linkedin.com/in/kaitlyn-hemby"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -104,13 +92,22 @@ export default function Contact() {
         </div>
         <div style={{ display: "flex", gap: 20 }}>
           <a
-            href="https://linkedin.com/in/kaitlynhemby"
+            href="https://linkedin.com/in/kaitlyn-hemby"
             target="_blank"
             rel="noopener noreferrer"
             className="hover-link"
             style={{ fontSize: 11, letterSpacing: "0.08em" }}
           >
             LinkedIn ↗
+          </a>
+          <a
+            href="https://github.com/khemby"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover-link"
+            style={{ fontSize: 11, letterSpacing: "0.08em" }}
+          >
+            GitHub ↗
           </a>
           <a
             href="https://kaitlynhemby.com"
