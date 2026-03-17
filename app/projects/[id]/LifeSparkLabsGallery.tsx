@@ -1,12 +1,32 @@
 "use client";
 
-const LIFESPARKLABS_VIDEOS = [
-  { src: "/lifesparklabs/CurrentState.mp4", caption: "Platform demo (Current State)" },
-  { src: "/lifesparklabs/PlatformDemo_V3.mp4", caption: "Platform demo (Legacy V2)" },
-  { src: "/lifesparklabs/PlatformDemo_V1.mp4", caption: "Platform demo (Legacy V1)" },
-  { src: "/lifesparklabs/V2_Tutorial.mp4", caption: "Prototype tutorial" },
-  { src: "/lifesparklabs/CareerExplorer%20Lots%20Matches.mp4", caption: "Career Explorer — Lots Matches" },
-  { src: "/lifesparklabs/Career%20Sim.mp4", caption: "Career simulation" },
+import Image from "next/image";
+
+type GalleryItem =
+  | { type: "image"; src: string; alt: string; caption: string }
+  | { type: "video"; src: string; caption: string };
+
+const LIFESPARKLABS_ITEMS: GalleryItem[] = [
+  {
+    type: "video",
+    src: "https://res.cloudinary.com/ds7l2g2mo/video/upload/v1773191987/CurrentState_yatjmr.mp4",
+    caption: "Full app preview",
+  },
+  {
+    type: "video",
+    src: "https://res.cloudinary.com/ds7l2g2mo/video/upload/v1773192019/LandingPage_d1p1bx.mp4",
+    caption: "Landing page",
+  },
+  {
+    type: "video",
+    src: "https://res.cloudinary.com/ds7l2g2mo/video/upload/v1773192002/Admin_xxzsra.mp4",
+    caption: "Admin dashboard",
+  },
+  {
+    type: "video",
+    src: "https://res.cloudinary.com/ds7l2g2mo/video/upload/v1773192105/Career_Sim_elijbb.mp4",
+    caption: "Career simulation",
+  },
 ];
 
 export default function LifeSparkLabsGallery() {
@@ -42,7 +62,7 @@ export default function LifeSparkLabsGallery() {
           padding: 24,
         }}
       >
-        {LIFESPARKLABS_VIDEOS.map((item) => (
+        {LIFESPARKLABS_ITEMS.map((item) => (
           <figure
             key={item.src}
             style={{
@@ -60,18 +80,37 @@ export default function LifeSparkLabsGallery() {
                 maxHeight: 420,
               }}
             >
-              <video
-                src={item.src}
-                controls
-                playsInline
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
-                }}
-              >
-                Your browser does not support the video tag.
-              </video>
+              {item.type === "video" ? (
+                <video
+                  src={item.src}
+                  controls
+                  muted
+                  playsInline
+                  ref={(el) => {
+                    if (el) el.playbackRate = 2.5;
+                  }}
+                  onLoadedMetadata={(e) => {
+                    const v = e.currentTarget;
+                    v.muted = true;
+                    v.playbackRate = 2.5;
+                  }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                  }}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 852px"
+                  style={{ objectFit: "contain" }}
+                />
+              )}
             </div>
             {item.caption && (
               <figcaption

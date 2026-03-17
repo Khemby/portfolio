@@ -5,6 +5,8 @@ import { getProjectById } from "../../data/projects";
 import SpxFitGallery from "./SpxFitGallery";
 import SpeedometerGallery from "./SpeedometerGallery";
 import LifeSparkLabsGallery from "./LifeSparkLabsGallery";
+import VortexeAIGallery from "./VortexeAIGallery";
+import AIREALGallery from "./AIREALGallery";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -25,6 +27,8 @@ export default async function ProjectPage({ params }: PageProps) {
   const isSpxFit = id === "spxfit";
   const isSpeedometer = id === "speedometer";
   const isLifeSparkLabs = id === "lifesparklabs";
+  const isVortexeAI = id === "vortexeai";
+  const isAIREAL = id === "aireal";
 
   return (
     <>
@@ -144,6 +148,12 @@ export default async function ProjectPage({ params }: PageProps) {
 
           {/* LifeSpark Labs: showcase videos from /lifesparklabs */}
           {isLifeSparkLabs && <LifeSparkLabsGallery />}
+
+          {/* VortexeAI: pipeline editor showcase */}
+          {isVortexeAI && <VortexeAIGallery />}
+
+          {/* AIREAL: AR platform showcase */}
+          {isAIREAL && <AIREALGallery />}
 
           <div className="divider" style={{ margin: "40px 0" }} />
 

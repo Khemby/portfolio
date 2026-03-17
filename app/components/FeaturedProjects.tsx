@@ -1,13 +1,28 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { projects } from "../data/projects";
+
+const FEATURED_IDS = ["lifesparklabs", "vortexeai", "spxfit", "aireal"];
+const featuredProjects = FEATURED_IDS.map((id) => projects.find((p) => p.id === id)!).filter(Boolean);
 import { EvervaultCard } from "./ui/EvervaultCard";
 import CornerBrackets from "./ui/CornerBrackets";
 
 export default function FeaturedProjects() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScroll, setCanScroll] = useState(false);
+
+  const checkOverflow = useCallback(() => {
+    const el = scrollRef.current;
+    if (el) setCanScroll(el.scrollWidth > el.clientWidth + 4);
+  }, []);
+
+  useEffect(() => {
+    checkOverflow();
+    window.addEventListener("resize", checkOverflow);
+    return () => window.removeEventListener("resize", checkOverflow);
+  }, [checkOverflow]);
 
   const scroll = (direction: number) => {
     scrollRef.current?.scrollBy({ left: direction * 280, behavior: "smooth" });
@@ -28,7 +43,7 @@ export default function FeaturedProjects() {
           <div className="section-label" style={{ marginBottom: 0 }}>
             <span style={{ color: "#383838" }}>01 //</span> PROJECTS
           </div>
-          <div style={{ display: "flex", gap: 8 }}>
+          <div style={{ display: canScroll ? "flex" : "none", gap: 8 }}>
             <button
               onClick={() => scroll(-1)}
               aria-label="Scroll left"
@@ -69,7 +84,7 @@ export default function FeaturedProjects() {
         </div>
 
         {/* Carousel */}
-        <div style={{ position: "relative", padding: 4 }}>
+        <div style={{ position: "relative", padding: "4px 0" }}>
           <CornerBrackets offset={4} />
         <div
           ref={scrollRef}
@@ -77,20 +92,19 @@ export default function FeaturedProjects() {
           style={{
             display: "flex",
             gap: 16,
-            overflowX: "auto",
-            scrollSnapType: "x mandatory",
+            overflowX: canScroll ? "auto" : "hidden",
+            scrollSnapType: canScroll ? "x mandatory" : undefined,
             background: "transparent",
           }}
         >
-          {projects.map((project) => (
+          {featuredProjects.map((project) => (
             <Link
               key={project.id}
               href={`/projects/${project.id}`}
               style={{
-                minWidth: 260,
-                maxWidth: 260,
+                minWidth: 240,
+                flex: "1 1 0%",
                 scrollSnapAlign: "start",
-                flexShrink: 0,
                 display: "flex",
                 flexDirection: "column",
                 textDecoration: "none",

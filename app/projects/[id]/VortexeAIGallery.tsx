@@ -2,13 +2,15 @@
 
 import Image from "next/image";
 
-const SPXFIT_IMAGES = [
-  { src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773191758/MobilePCApp_kvblf7.png", alt: "SPXFit mobile and PC app view", caption: "Mobile & PC" },
-  { src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773191741/AppPC_oqevok.gif", alt: "SPXFit configurator on desktop", caption: "Configurator on desktop" },
-  { src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773191748/AppMobile_u66zvj.gif", alt: "SPXFit mobile app", caption: "Mobile app" },
+const VORTEXEAI_IMAGES = [
+  {
+    src: "https://res.cloudinary.com/ds7l2g2mo/image/upload/v1773191533/preview.png",
+    alt: "VortexeAI pipeline editor preview",
+    caption: "Pipeline editor",
+  },
 ];
 
-export default function SpxFitGallery() {
+export default function VortexeAIGallery() {
   return (
     <div
       style={{
@@ -26,7 +28,7 @@ export default function SpxFitGallery() {
           fontSize: 11,
           fontFamily: "var(--font-geist-mono)",
           fontWeight: 700,
-          color: "#6284f7",
+          color: "#9b5cf6",
           letterSpacing: "0.12em",
           textTransform: "uppercase",
         }}
@@ -41,7 +43,7 @@ export default function SpxFitGallery() {
           padding: 24,
         }}
       >
-        {SPXFIT_IMAGES.map((item) => (
+        {VORTEXEAI_IMAGES.map((item) => (
           <figure
             key={item.src}
             style={{
@@ -65,7 +67,6 @@ export default function SpxFitGallery() {
                 fill
                 sizes="(max-width: 900px) 100vw, 852px"
                 style={{ objectFit: "contain" }}
-                unoptimized={item.src.endsWith(".gif")}
               />
             </div>
             {item.caption && (

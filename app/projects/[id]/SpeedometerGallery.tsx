@@ -50,9 +50,18 @@ export default function SpeedometerGallery() {
             }}
           >
             <video
-              src="/car_speed_odometer/SpeedOdometer.mp4"
+              src="https://res.cloudinary.com/ds7l2g2mo/video/upload/v1773194648/Vid_s8wb94.mp4"
               controls
+              muted
               playsInline
+              ref={(el) => {
+                if (el) el.playbackRate = 2.5;
+              }}
+              onLoadedMetadata={(e) => {
+                const v = e.currentTarget;
+                v.muted = true;
+                v.playbackRate = 2.5;
+              }}
               style={{
                 width: "100%",
                 height: "100%",
